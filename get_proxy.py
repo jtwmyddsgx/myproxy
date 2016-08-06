@@ -98,9 +98,11 @@ if __name__ == "__main__":
         time_sleep = int(sys.argv[1])
     else:
         time_sleep = 60 * 60
+        
     while (True):
         pp = ProxyPool()
         pp.get_youdaili()
         pc = ProxyCheck()
         pc.check()
-        time.sleep(time_sleep)
+        time.sleep(time_sleep) #可以选择不要间隔
+        
