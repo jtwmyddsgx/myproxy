@@ -58,6 +58,7 @@ class ProxyCheck:
 
     def __init__(self):
         self.ip_port_all = [(i['ip_port'], i['protocol']) for i in proxy_pool.find()] # 查询，获取所有ip
+		
     def remove_ip(self, ip_port): # 如果没能成功响应，将执行次方法，将其响应速度设置为空并且判断存在时间是否超过一周
         ip_data = proxy_pool.find({'ip_port': ip_port})
         proxy_pool.update_one({'ip_port': ip_port}, {'$set': {'speed': None}})
